@@ -3,6 +3,20 @@
 <form action="<%= restaurant_path(params[:id]) %>" method="POST" >
     <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
 
+    <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+        <%= pluralize(@restaurant.errors.count, "error") %> prohibited
+        this article from being saved:
+        </h2>
+        <ul>
+        <% @restaurant.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+    
     <input type="hidden" name="_method" value="patch" />
 
     <label for="title">Title</label>

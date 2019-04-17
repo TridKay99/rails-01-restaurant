@@ -9,4 +9,14 @@
 <h3>Description</h3>
 <p><%= @restaurant.description %></p>
 
+<h3>Reviews</h3>
+<ul>
+    <% @restaurant.reviews.each do |review| %>
+        <li>
+            <p><%= review.title %> - <%= review.rating %> </p>
+            <p><%= review.content %></p>
+        </li>
+    <% end %>
+</ul>
+
 <%= link_to "Back", :back %>

@@ -35,6 +35,8 @@
             <p><%= review.content %></p>
         </li>
     <% end %>
+    <%= link_to 'Delete Review', restaurant_path(@restaurant.reviews), method: :delete, data: {confirm: 'Are you sure?'} %>
+    
 </ul>
 <%= link_to 'Delete', restaurant_path(@restaurant), method: :delete, data: {confirm: 'Are you sure?'} %>
 

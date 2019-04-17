@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   patch "/restaurants/:id", to: "restaurants#update"
   get "/restaurants/:id/edit", to: "restaurants#edit", as: "edit_restaurant"
   post "/reviews", to: "reviews#create", as: "review"
+  delete "restaurants/:id", to: "restaurants#destroy" 
 
   root 'restaurants#index'
 end

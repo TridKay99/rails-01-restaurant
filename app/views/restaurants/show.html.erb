@@ -9,6 +9,24 @@
 <h3>Description</h3>
 <p><%= @restaurant.description %></p>
 
+<h3>Add a Review</h3>
+
+<form action="<%= review_path %>" method="POST" >
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+    <input type="hidden" value="<%= @restaurant.id %>" name="restaurant_id" />
+
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title"/>
+
+    <label for="content">Content</label>
+    <input type="text" name="content" id="content"/>
+
+    <label for="rating">Rating</label>
+    <input type="text" name="rating" id="rating" />
+
+    <input type="submit" value="Create" />
+</form>
+
 <h3>Reviews</h3>
 <ul>
     <% @restaurant.reviews.each do |review| %>
@@ -18,5 +36,6 @@
         </li>
     <% end %>
 </ul>
+<%= link_to 'Delete', restaurant_path(@restaurant), method: :delete, data: {confirm: 'Are you sure?'} %>
 
 <%= link_to "Back", :back %>

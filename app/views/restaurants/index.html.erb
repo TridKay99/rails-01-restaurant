@@ -4,7 +4,9 @@
     <% @restaurants.each_with_index do |restaurant, index| %>
         <li>
             <%= restaurant.title %> - <%= restaurant.food_type %> <%= link_to "show", restaurant_path(restaurant.id) %>
-            <p>Reviews: <%= restaurant.reviews.count %></p>3
+            <p>Reviews: <%= restaurant.reviews.count %></p>
+            <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
         </li>
     <% end %>
+    <%= link_to 'New Restaurant', new_restaurant_path %>
 </ul>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "/restaurants", to: "restaurants#index", as: "restaurants"
   post "/restaurants", to: "restaurants#create"
   get "/restaurants/new", to: "restaurants#new", as: "new_restaurant"

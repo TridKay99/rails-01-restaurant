@@ -21,9 +21,6 @@
     <label for="content">Content</label>
     <input type="text" name="content" id="content"/>
 
-    <label for="rating">Rating</label>
-    <input type="text" name="rating" id="rating" />
-
     <input type="submit" value="Create" />
 </form>
 
@@ -36,8 +33,20 @@
         </li>
     <% end %>
     <%= link_to 'Delete Review', restaurant_path(@restaurant.reviews), method: :delete, data: {confirm: 'Are you sure?'} %>
-    
 </ul>
+
+<h3>Add a Rating<h3>
+
+<form actiong="%= rating_path %>" method="POST">
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+    <input type="hidden" value="<%= @restaurant.id %>" name="restaurant_id" />
+
+    <label for="rating">Rating</label>
+    <input type="text" name="rating" id="rating" />
+    <input type="submit" value="Create" />
+</form>
+
+
 <%= link_to 'Delete', restaurant_path(@restaurant), method: :delete, data: {confirm: 'Are you sure?'} %>
 
 <%= link_to "Back", :back %>
